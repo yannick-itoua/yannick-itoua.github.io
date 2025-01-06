@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Typography, TextField, Button, Alert } from "@mui/material";
 import axios from "axios";
 
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -9,6 +10,7 @@ const Contact = () => {
     message: "",
   });
   const [status, setStatus] = useState({ success: null, message: "" });
+  const API_URL = "https://portfolio-backend-tkqm.onrender.com";
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,7 +20,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/contact", formData);
+      const response = await axios.post(`${API_URL}/api/contact`, formData);
 
       setStatus({ success: true, message: response.data.message });
       setFormData({ name: "", email: "", message: "" });
