@@ -15,8 +15,8 @@ const skills = [
   { name: "Tailwind", icon: <img src="/tailwind.png" alt="Tailwind" width="50" /> },
   { name: "Postgresql", icon: <img src="/postgresql.jpg" alt="Postgresql" width="50" /> },
   { name: "Mongodb", icon: <img src="/mongodb.jpg" alt="Mongodb" width="50" /> },
-  { name: "Next", icon: <img src="/next.png" alt="Next" width="50" /> },
-  { name: "Typescript", icon: <img src="/typescript.png" alt="Typescript" width="50" /> }
+  { name: "Next", icon: <img src="/nextjs.png" alt="Next" width="50" /> },
+  { name: "Typescript", icon: <img src="/type.png" alt="Typescript" width="50" /> }
 ];
 
 const HomePage = () => {
