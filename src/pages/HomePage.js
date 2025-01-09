@@ -11,11 +11,11 @@ const skills = [
   { name: "Python", icon: <img src="/python.jpg" alt="Python" width="50" /> },
   { name: "Django", icon: <img src="/django.png" alt="Django" width="50" /> },
   { name: "Kubernetes", icon: <img src="/kuber.jpg" alt="Kubernetes" width="50" /> },
-  { name: "Docker", icon: <img src="/docker.png" alt="Docker" width="50" /> }
-  { name: "Tailwind", icon: <img src="/tailwind.png" alt="Tailwind" width="50" /> }
-  { name: "Postgresql", icon: <img src="/postgresql.jpg" alt="Postgresql" width="50" /> }
-  { name: "Mongodb", icon: <img src="/mongodb.jpg" alt="Mongodb" width="50" /> }
-  { name: "Next", icon: <img src="/next.jpg" alt="Next" width="50" /> }
+  { name: "Docker", icon: <img src="/docker.png" alt="Docker" width="50" /> },
+  { name: "Tailwind", icon: <img src="/tailwind.png" alt="Tailwind" width="50" /> },
+  { name: "Postgresql", icon: <img src="/postgresql.jpg" alt="Postgresql" width="50" /> },
+  { name: "Mongodb", icon: <img src="/mongodb.jpg" alt="Mongodb" width="50" /> },
+  { name: "Next", icon: <img src="/next.jpg" alt="Next" width="50" /> },
   { name: "Typescript", icon: <img src="/typescript.jpg" alt="Typescript" width="50" /> }
 ];
 
