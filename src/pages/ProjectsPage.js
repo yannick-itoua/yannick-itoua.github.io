@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Slider from "react-slick";
-import { Card, CardContent, CardActions, Typography, Button } from "@mui/material";
-
+import { Card, CardContent, CardActions, Typography, Button, CardMedia } from "@mui/material";
+//nothing
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://portfolio-backend-tkqm.onrender.com/api/projects") // URL du backend sur Render
+      .get("https://portfolio-backend-tkqm.onrender.com/api/projects") // Backend URL
       .then((response) => setProjects(response.data))
       .catch((error) => console.error("Error fetching projects:", error));
   }, []);
@@ -23,7 +23,6 @@ const ProjectsPage = () => {
     autoplay: true,
     autoplaySpeed: 3000,
   };
-
   return (
     <div style={{ padding: "20px" }}>
       <Typography variant="h4" gutterBottom style={{ textAlign: "center", marginBottom: "20px" }}>
@@ -43,6 +42,13 @@ const ProjectsPage = () => {
                 transition: "all 0.3s ease-in-out",
               }}
             >
+              {/* Image Section */}
+              <CardMedia
+                component="img"
+                height="200"
+                image={project.image} // Path to the image
+                alt={project.title}
+              />
               <CardContent>
                 <Typography variant="h5">{project.title}</Typography>
                 <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
