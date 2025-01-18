@@ -35,14 +35,14 @@ const HomePage = () => {
         Hi, I'm Yannick Itoua
       </Typography>
       <Typography variant="h5" gutterBottom>
-        Junior Fullstack Developer with 4 months of experience 
+        Entry-Level Fullstack Developer with 4 months of experience 
       </Typography>
       <Typography
         variant="body1"
         gutterBottom
         sx={{ maxWidth: "600px", marginTop: 2 }}
       >
-        I specialize in building efficient and scalable web applications using modern technologies like JavaScript, React, Angular, Java, Spring Boot, Python, Django, Kubernetes, Docker, Tailwind, PostgreSQL, MongoDB, Next, and TypeScript. Passionate about problem-solving and learning new skills, I’m excited to take on challenges that help me grow as a developer.
+        I specialize in building efficient and scalable web applications using modern technologies with MERN stack, Angular + SpringBoot and React + Django . Passionate about problem-solving and learning new skills, I’m excited to take on challenges that help me grow as a developer.
       </Typography>
 
       {/* Skills Section */}
