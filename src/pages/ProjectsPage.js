@@ -7,7 +7,7 @@ const ProjectsPage = () => {
 
   useEffect(() => {
     axios
-      .get("https://portfolio-backend-tkqm.onrender.com/api/projects") // URL du backend déployé
+      .get("https://portfolio-backend-tkqm.onrender.com/api/projects") // URL du backend
       .then((response) => setProjects(response.data))
       .catch((error) => console.error("Error fetching projects:", error));
   }, []);
@@ -33,7 +33,7 @@ const ProjectsPage = () => {
               <CardMedia
                 component="img"
                 height="200"
-                image={project.image} // Chemin de l'image
+                image={project.image} // Chemin défini dans le backend
                 alt={project.title}
               />
               {/* Titre et description */}
@@ -43,7 +43,7 @@ const ProjectsPage = () => {
                   {project.description}
                 </Typography>
               </CardContent>
-              {/* Boutons */}
+              {/* Bouton GitHub */}
               <CardActions>
                 <Button size="small" color="primary" href={project.githubLink} target="_blank">
                   GitHub
