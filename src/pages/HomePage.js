@@ -15,7 +15,7 @@ const currentSkills = [
 
 // Other Tools & Past Experience
 const pastSkills = [
-  { name: "JavaScript", icon: <img src="/js.png" alt="JavaScript" width="50" /> },
+  { name: "JavaScript", icon: <img src="/js.jpg" alt="JavaScript" width="50" /> },
   { name: "React", icon: <img src="/react.png" alt="React" width="50" /> },
   { name: "Angular", icon: <img src="/angular.png" alt="Angular" width="50" /> },
   { name: "Python", icon: <img src="/python.jpg" alt="Python" width="50" /> },
