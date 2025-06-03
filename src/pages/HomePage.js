@@ -40,7 +40,7 @@ const HomePage = () => {
         Hi, I'm Yannick Itoua
       </Typography>
       <Typography variant="h5" gutterBottom>
-        Entry-Level Full Stack Developer with Hands-On Internship Experience
+        Entry-Level Full Stack Developer with Hands-On Experience
       </Typography>
       <Typography
         variant="body1"
