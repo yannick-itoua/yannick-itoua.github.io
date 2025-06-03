@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Card, CardContent, CardActions, Typography, Grid, Button, CardMedia, Chip, Box, Divider } from "@mui/material";
+import { Card, CardContent, CardActions, Typography, Grid, Button, Chip, Box, Divider, CardMedia } from "@mui/material";
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
@@ -44,48 +44,32 @@ const ProjectsPage = () => {
                 transition: "all 0.3s ease-in-out",
               }}
             >
-              <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" } }}>
-                {/* Company Image */}
-                <CardMedia
-                  component="img"
-                  sx={{ 
-                    width: { xs: "100%", md: 200 }, 
-                    height: { xs: 200, md: "auto" },
-                    objectFit: "cover" 
-                  }}
-                  image={experience.image}
-                  alt={experience.company}
-                />
+              {/* Content - Image section removed */}
+              <CardContent>
+                <Typography variant="h5">{experience.title}</Typography>
+                <Typography variant="h6" color="text.secondary">
+                  {experience.company} · {experience.employmentType}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                  {experience.period}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                  {experience.location}
+                </Typography>
+                <Typography variant="body1" paragraph>
+                  {experience.description}
+                </Typography>
                 
-                {/* Content */}
-                <Box sx={{ flex: 1 }}>
-                  <CardContent>
-                    <Typography variant="h5">{experience.title}</Typography>
-                    <Typography variant="h6" color="text.secondary">
-                      {experience.company} · {experience.employmentType}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                      {experience.period}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                      {experience.location}
-                    </Typography>
-                    <Typography variant="body1" paragraph>
-                      {experience.description}
-                    </Typography>
-                    
-                    {/* Skills */}
-                    <Typography variant="subtitle1" sx={{ mb: 1, fontWeight: 'medium' }}>
-                      Skills
-                    </Typography>
-                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                      {experience.skills.map((skill, index) => (
-                        <Chip key={index} label={skill} size="small" color="primary" variant="outlined" />
-                      ))}
-                    </Box>
-                  </CardContent>
+                {/* Skills */}
+                <Typography variant="subtitle1" sx={{ mb: 1, fontWeight: 'medium' }}>
+                  Skills
+                </Typography>
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                  {experience.skills.map((skill, index) => (
+                    <Chip key={index} label={skill} size="small" color="primary" variant="outlined" />
+                  ))}
                 </Box>
-              </Box>
+              </CardContent>
             </Card>
           </Grid>
         ))}
