@@ -4,36 +4,27 @@ import { Card, CardContent, CardActions, Typography, Grid, Button, CardMedia, Ch
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
-  const [experiences, setExperiences] = useState([]);
+  // Hardcode experiences directly instead of fetching from API
+  const [experiences] = useState([
+    {
+      _id: "1",
+      title: "IT Consultant Intern",
+      company: "CGI",
+      employmentType: "Internship",
+      period: "Apr 2024 - Jul 2024 · 4 mos",
+      location: "Lille, Hauts-de-France, France · Hybrid",
+      description: "During my internship at CGI, I took on meaningful responsibilities in backend development where I built and maintained REST APIs that seamlessly connected critical systems. I gained valuable experience working with enterprise tools like Intersystems Cache, while using Postman, DBeaver, and Swagger to ensure API reliability and data integrity. Beyond coding, I actively participated in an Agile team environment, contributing to architectural discussions and using data insights to drive performance improvements. I also enhanced deployment workflows using Azure CI/CD pipelines, significantly reducing release times. One of my key contributions was resolving complex support tickets that improved client satisfaction and taught me how to balance technical problem-solving with effective communication in a professional consulting environment.",
+      image: "/cgi-internship.png",
+      skills: ["Intersystems Cache", "Postman API", "DBeaver", "Mockoon", "SQL", "ObjectScript", "Agile Methodologies", "Microsoft Azure", "Visual Studio", "REST APIs", "Filezilla", "Swagger API", "Docker"]
+    }
+  ]);
 
   useEffect(() => {
-    // Fetch projects
+    // Only fetch projects
     axios
       .get("https://portfolio-backend-tkqm.onrender.com/api/projects")
       .then((response) => setProjects(response.data))
       .catch((error) => console.error("Error fetching projects:", error));
-    
-    // Fetch experiences with fallback
-    axios
-      .get("https://portfolio-backend-tkqm.onrender.com/api/experiences")
-      .then((response) => setExperiences(response.data))
-      .catch((error) => {
-        console.error("Error fetching experiences:", error);
-        // Hardcoded fallback data
-        setExperiences([
-          {
-            _id: "1",
-            title: "IT Consultant Intern",
-            company: "CGI",
-            employmentType: "Internship",
-            period: "Apr 2024 - Jul 2024 · 4 mos",
-            location: "Lille, Hauts-de-France, France · Hybrid",
-            description: "During my internship at CGI, I took on meaningful responsibilities in backend development where I built and maintained REST APIs that seamlessly connected critical systems. I gained valuable experience working with enterprise tools like Intersystems Cache, while using Postman, DBeaver, and Swagger to ensure API reliability and data integrity. Beyond coding, I actively participated in an Agile team environment, contributing to architectural discussions and using data insights to drive performance improvements. I also enhanced deployment workflows using Azure CI/CD pipelines, significantly reducing release times. One of my key contributions was resolving complex support tickets that improved client satisfaction and taught me how to balance technical problem-solving with effective communication in a professional consulting environment.",
-            image: "/cgi-internship.png",
-            skills: ["Intersystems Cache", "Postman API", "DBeaver", "Mockoon", "SQL", "ObjectScript", "Agile Methodologies", "Microsoft Azure", "Visual Studio", "REST APIs", "Filezilla", "Swagger API", "Docker"]
-          }
-        ]);
-      });
   }, []);
 
   return (
