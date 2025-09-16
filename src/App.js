@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import ProjectsPage from "./pages/ProjectsPage";
 import { CssBaseline, ThemeProvider, createTheme, Box } from "@mui/material";
 import Navbar from "./components/Navbar";
 
@@ -77,15 +76,20 @@ const theme = createTheme({
 });
 
 const App = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <Navbar />
+        <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
         <Box component="main" sx={{ flexGrow: 1 }}>
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/" element={<HomePage isDarkMode={isDarkMode} />} />
           </Routes>
         </Box>
       </Box>

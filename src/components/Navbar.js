@@ -19,7 +19,9 @@ import {
   Home as HomeIcon,
   Work as WorkIcon,
   Person as PersonIcon,
-  Email as EmailIcon
+  Email as EmailIcon,
+  Brightness4 as DarkModeIcon,
+  Brightness7 as LightModeIcon
 } from "@mui/icons-material";
 import { motion } from "framer-motion";
 
@@ -28,7 +30,7 @@ const theme = {
   gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
 };
 
-const Navbar = () => {
+const Navbar = ({ isDarkMode, toggleDarkMode }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const muiTheme = useTheme();
@@ -95,6 +97,30 @@ const Navbar = () => {
             />
           </ListItem>
         ))}
+        
+        {/* Dark Mode Toggle in Mobile Drawer */}
+        <ListItem 
+          button 
+          onClick={toggleDarkMode}
+          sx={{
+            '&:hover': {
+              backgroundColor: theme.primary + '20',
+            }
+          }}
+        >
+          <Box sx={{ mr: 2, color: theme.primary }}>
+            {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
+          </Box>
+          <ListItemText 
+            primary={isDarkMode ? 'Light Mode' : 'Dark Mode'}
+            sx={{
+              '& .MuiTypography-root': {
+                fontWeight: 500,
+                color: theme.primary
+              }
+            }}
+          />
+        </ListItem>
       </List>
     </Box>
   );
@@ -138,7 +164,7 @@ const Navbar = () => {
           </motion.div>
 
           {!isMobile ? (
-            <Box sx={{ display: 'flex', gap: 1 }}>
+            <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.name}
@@ -183,24 +209,66 @@ const Navbar = () => {
                   </Button>
                 </motion.div>
               ))}
+              
+              {/* Dark Mode Toggle */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navItems.length * 0.1, duration: 0.5 }}
+              >
+                <IconButton
+                  onClick={toggleDarkMode}
+                  sx={{
+                    color: isScrolled ? theme.primary : 'white',
+                    ml: 1,
+                    '&:hover': {
+                      backgroundColor: isScrolled 
+                        ? theme.primary + '10' 
+                        : 'rgba(255,255,255,0.1)',
+                      transform: 'scale(1.1)',
+                    },
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
+                </IconButton>
+              </motion.div>
             </Box>
           ) : (
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ 
-                color: isScrolled ? theme.primary : 'white',
-                '&:hover': {
-                  backgroundColor: isScrolled 
-                    ? theme.primary + '10' 
-                    : 'rgba(255,255,255,0.1)',
-                }
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              {/* Dark Mode Toggle for Mobile */}
+              <IconButton
+                onClick={toggleDarkMode}
+                sx={{
+                  color: isScrolled ? theme.primary : 'white',
+                  mr: 1,
+                  '&:hover': {
+                    backgroundColor: isScrolled 
+                      ? theme.primary + '10' 
+                      : 'rgba(255,255,255,0.1)',
+                  }
+                }}
+              >
+                {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
+              </IconButton>
+              
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{ 
+                  color: isScrolled ? theme.primary : 'white',
+                  '&:hover': {
+                    backgroundColor: isScrolled 
+                      ? theme.primary + '10' 
+                      : 'rgba(255,255,255,0.1)',
+                  }
+                }}
+              >
+                <MenuIcon />
+              </IconButton>
+            </Box>
           )}
         </Toolbar>
       </AppBar>
