@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, IconButton } from "@mui/material";
-import { GitHub, LinkedIn } from "@mui/icons-material";
+import { GitHub, LinkedIn, Email } from "@mui/icons-material";
 
 const Footer = () => {
   return (
@@ -12,18 +12,33 @@ const Footer = () => {
         borderTop: "1px solid #ccc",
       }}
     >
-      <Typography variant="body2" sx={{ mb: 2 }}>
-        Connect with me:
+      <Typography variant="h5" sx={{ mb: 2, fontWeight: "medium" }}>
+        Connect with me
       </Typography>
-      <IconButton href="https://github.com/yannick-itoua" target="_blank">
-        <GitHub />
-      </IconButton>
-      <IconButton
-        href="https://linkedin.com/in/yannick-itoua"
-        target="_blank"
-      >
-        <LinkedIn />
-      </IconButton>
+      
+      <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
+        <IconButton 
+          href="mailto:yannickitoua911@gmail.com" 
+          target="_blank"
+          sx={{ color: "primary.main" }}
+        >
+          <Email />
+        </IconButton>
+        <IconButton 
+          href="https://github.com/yannick-itoua" 
+          target="_blank"
+          sx={{ color: "primary.main" }}
+        >
+          <GitHub />
+        </IconButton>
+        <IconButton
+          href="https://linkedin.com/in/yannick-itoua"
+          target="_blank"
+          sx={{ color: "primary.main" }}
+        >
+          <LinkedIn />
+        </IconButton>
+      </Box>
     </Box>
   );
 };
